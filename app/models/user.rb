@@ -7,10 +7,10 @@ class User < ApplicationRecord
         
          has_many :items
         
-  extend ActiveHash::Associations::ActiveRecordExtensions
+   extend ActiveHash::Associations::ActiveRecordExtensions
 
-    belongs_to_active_hash :category 
-    belongs_to_active_hash :second_category
+     belongs_to_active_hash :category 
+     belongs_to_active_hash :second_category
   
 
          zenkaku = /\A[ぁ-んァ-ン一-龥]/
@@ -25,4 +25,9 @@ class User < ApplicationRecord
            validates :email, format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "can't be blank"}
            validates :password,format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: " Include both letters and numbers"}
          end
+         
+         with_options numericality: {other_than: 1} do
+          validates :category_id   
+          validates :second_category_id
+        end
 end
