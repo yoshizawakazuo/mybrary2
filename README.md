@@ -1,24 +1,75 @@
-# README
+# 名前
+ 
+mybrary
+ 
+本の検索アプリ
+ 
+# ER図
+ 
+https://i.gyazo.com/711c0d0e8c955fb87755a91cba5e6017.png
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 要件定義
 
-Things you may want to cover:
+|機能|本の紹介機能|
+|:---|:---|
+|理由|ユーザーが本を紹介し合う様にするため|
+|説明|画像と説明や作者などの情報は投稿、保存する|
 
-* Ruby version
+|機能|ユーザーにあった本を表示する機能|
+|:---|:---|
+|理由|検索の手間を省くため|
+|説明|ユーザーと本で同じ属性を持っていれば表示される|
+|機能｜商品検索機能|
+|:---|:---|
+|理由|タイトルや作者から検索できる|
+|説明|特定の文字列を含む値をDBから引っ張る|
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+#　利用方法
+ユーザー登録すれば他のユーザーが登録した自分にあった本が自動で表示される。
+ 
+# 目指した課題
+ 
+ユーザーと投稿した本に同じカテゴリを持たユーザーにあった本を表示させる
+ 
+# 環境
+ 
+MySQL
+Heroku
+ruby
+ruby on rails
+JavaScript
+ 
+# besic認証
+Id admin
+pass 2222
 
-* Database initialization
+ 
+# 実装予定の機能
+ 
+いいね機能
+検索機能
 
-* How to run the test suite
+ 
 
-* Services (job queues, cache servers, search engines, etc.)
+ 
+# ローカルでの動作方法
 
-* Deployment instructions
+rubyバージョン
+６.0.0
+ 
+パッケージ
+Node.js 
 
-* ...
+ 
+# 作者
+ 
+* yuoshizawakazuo
+
+* yoshizawakazuo1221@gmail.com
+ 
+# 作成状況
+
+DB設計と
+TOPのビューのみ作成

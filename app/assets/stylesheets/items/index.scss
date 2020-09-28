@@ -3,8 +3,9 @@ a {
 }
 
 .main {
-  background: #f8f8f8;
+  background:#000533;
   font-family: serif;
+  height: 90vh;
 }
 
 
@@ -14,6 +15,13 @@ a {
   padding: 5vh 25vw;
   background-image: image-url('top-image.jpg');
   background-size: contain;
+  
+  opacity: 0;
+  transition: 3s;
+}
+.select-reason-contents.show{
+  opacity: 1;
+  transform: none;
 }
 
 .select-reason-contents>.title {
@@ -21,7 +29,16 @@ a {
   height: 15vh;
 
   position: relative;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 5s;
+  transform: translateY(-50px);
 }
+.select-reason-contents>.title.show {
+opacity: 1;
+transform: none;
+}
+
 
 
 .reason-lists {
@@ -93,6 +110,7 @@ a {
 .ad-title {
   font-size: 5vh;
   margin-bottom: 2vh;
+  border-radius: 5px;
 }
 
 .ad-explain {
@@ -123,6 +141,14 @@ a {
   flex-direction: column;
   align-items: center;
   padding: 3vh 0;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 2.5s;
+  transform: translateY(50px);
+}
+.item-contents.show{
+  transform: none;
+  opacity: 1;
 }
 
 .item-contents>.title {
@@ -161,6 +187,7 @@ a {
   width: 33vh;
   height: 33vh;
   padding: 1vh,0;
+  border-radius: 5px;
 }
 
 .sold-out {
@@ -186,11 +213,11 @@ a {
 }
 
 .item-name {
-  font-size: 2.5vh;
+  font-size: 4vh;
 }
 
 .item-price {
-  font-size: 1.5vh;
+  font-size: 3vh;
   display: flex;
   justify-content: space-between;
 }
@@ -208,13 +235,20 @@ a {
 }
 
 .star-count {
-  font-size: 2vh;
+  font-size: 4vh;
 }
 .list {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 3vh;
+    opacity: 1;
+    transition: 5s;
+    transform: translateX(150px);
 }
 
+.list.show{
+  opacity: 1;
+  transform: none;
+}
 /* //商品一覧 */

@@ -5,22 +5,30 @@ class ItemsController < ApplicationController
   
   before_action :authenticate_user!, only: [:new]
 
+  before_action :search_product, only: [:index, :search]
+
   def index
-     @items = Item.all .includes(:user) .order("created_at DESC")
+     @items = Item.all 
+     @@results = @p.result(dinctinct: true) 
+
   end
   
+  def search
+    @@results = @p.result.includes(:name,:authr)  
+  end
+
   def new
     @item = Item.new
   end
  
   def create
     @item = Item.new(item_params)
-    if @item.valid?
+     if @item.valid?
       @item.save  
-      return redirect_to root_path
-    else
-      render "new"
-    end 
+       return redirect_to root_path
+     else
+       render "new"
+     end 
     
   end
 
@@ -58,11 +66,14 @@ class ItemsController < ApplicationController
        :second_category_id, 
        :info,
        :image,
-       :valuatoin
+       :valuation
       ) 
       .merge(user_id: current_user.id)
   end
 
+  def search_product
+    @p = Item.ransack(params[:q])  
+  end
 
   def set_item
       @item = Item.find(params[:id])

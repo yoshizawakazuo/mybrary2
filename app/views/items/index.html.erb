@@ -1,76 +1,73 @@
-<%= render "shared/header" %>
-<div class='main'>
+<%# <%= render "shared/header" %> 
+<html>
+  <head>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+      <%= render "shared/header" %>
 
-  
-  
-  <%# 二冊のオススメの本が出る部分  %>
+        <div class='main'>
+          <%# １冊のオススメの本が出る部分  %>
 
-  <div class='select-reason-contents'>
-   
-    <%= image_tag "copy.png", class:'title'%>
-      
+          <div class='select-reason-contents'>
+          
+            <%= image_tag "copy.png", class:'title'%>
+              
 
-    <div class='item-contents'>
-    <h2 class='title'>本日のおすすめ二冊</h2>
-    <%# 紹介ページnewにリンク %>
-    <%= link_to '読んだ本を紹介する', new_item_path, class: "subtitle" %>
-    <ul class='item-lists'>
+            <div class='item-contents'>
+            <h2 class='title'>本日のおすすめ一冊</h2>
+            <%= link_to '読んだ本を紹介する', new_item_path, class: "subtitle" %>
+            <ul class='item-lists'>
 
-    <% @items.sample(2) do |item| %> 
-      <li class='list'>
-        <%= link_to item_path(item.id) do %>
-        <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img" %>
+            <% @items.sample(1) do |item| %> 
+              <li class='list'>
+                <%= link_to item_path(item.id) do %>
+                <div class='item-img-content'>
+                  <%= image_tag item.image, class: "item-img" %>
 
-           <%# 自分が評価していれば %>
-           <%# <%if item.order %>
-             <%# <div class='sold-out'  > %>
-             <%# <span>READ!</span>  %>
-            <%# </div>  %>
-             <%# <% end %>   
-
-        </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= item.name %>
-          </h3>
-          <div class='item-price'>
-            <span><%= item.aothr %><br>著</span>
-            <div class='star-btn'>
-              <%= image_tag "valuation.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
-            </div>
+                </div>
+                <div class='item-info'>
+                  <h3 class='item-name'>
+                    <%= item.item_name %>
+                  </h3>
+                  <div class='item-price'>
+                    <span><%= item.authr %> 著 </span>
+                    <div class='star-btn'>
+                      <%= image_tag "valuation.png", class:"star-icon" %>
+                       <div class = "star-count" >
+                      <span><%= item.valuation%> </span>
+                         
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+              </li>
+            <% end %>
           </div>
+            
+          <%# <% if @items.length == 0%> 
+              <li class='list'>
+                <%= link_to '#' do %>
+                <%= image_tag "item-sample.jpg", class: "item-img" %>
+                <div class='item-info'>
+                  <h3 class='item-name'>
+                    ~Title~
+                  </h3>
+                  <div class='item-price'>
+                    <span> Aothr </span>
+                    <div class='star-btn'>
+                      score:
+                      <span class='star-count'>80</span>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+              </li>
+            <%# <% end %>         
+            </ul>
+          </div> 
         </div>
-        <% end %>
-      </li>
-    <% end %>
-  </div>
-     
-   <% if @items.length == 0%>
-      <li class='list'>
-        <%= link_to '#' do %>
-        <%= image_tag "item-sample.jpg", class: "item-img" %>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            Title
-          </h3>
-          <div class='item-price'>
-            <span> Aothr </span>
-            <div class='star-btn'>
-              <%= image_tag "valuation.png", class:"star-icon" %>
-              <span class='star-count'>80</span>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </li>
-    <% end %>        
-    </ul>
-  </div>
-  
-  
-</div>
-
+  </body>
+</html>
  
 

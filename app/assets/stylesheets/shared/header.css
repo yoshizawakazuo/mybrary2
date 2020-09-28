@@ -22,10 +22,11 @@
 }
 
 .search-form {
-  width: 65vw;
-  height: 5vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   margin-bottom: 5px;
+  
 }
 
 .search-form>.input-box {
@@ -34,16 +35,18 @@
   padding-left: 10px;
 }
 
-.search-button {
-  width: 5vh;
-  border: 0;
-  cursor: pointer;
-  background-color: #000f94;
-  padding: 2px;
-}
+
 
 .search-icon {
   width: 100%;
+  cursor: pointer;
+  width: 5vh;
+  border: 0;
+  color:#fff;
+  background-color: #555;
+  padding: 2px;
+ 
+  background-size: contain;
 }
 
 .nav {

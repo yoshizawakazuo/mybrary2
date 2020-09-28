@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :image
     validates :item_name
-    validates :info 
+    validates :info
     validates :valuation
     validates :category
     validates :second_category
@@ -26,5 +26,6 @@ class Item < ApplicationRecord
     validates :second_category_id
   end
  
-
+  validates :valuation, length: { maximum: 100 }
+  validates :valuation, numericality: { only_integer: true }
 end
