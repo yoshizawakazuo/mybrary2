@@ -86,6 +86,8 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.9.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
@@ -288,6 +290,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  enum_help (~> 0.0.15)
   factory_bot_rails
   faker
   image_processing (~> 1.2)

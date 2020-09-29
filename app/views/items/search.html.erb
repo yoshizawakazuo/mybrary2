@@ -2,25 +2,22 @@
    <div class='search-bar-contents'>  
      <%= link_to image_tag("mybrary-logo.png", class:"furima-icon"), "user_path" %> 
       <form class="search-form" > 
-      <%= search_form_for @p do |f| %> 
-       <%= f.search_field :item_name_or_authr_cont ,placeholder: '本のタイトルか作者名', class: 'input-box'%>
-
-   
+      <%= search_form_for @p ,url: items_search_path do |f| %> 
+       <%= f.search_field :item_name_or_authr_cont ,onsearch: true, placeholder: '本のタイトルか作者名で検索できます（こちらに入力してください）', class: 'input-box'%>
          <%= f.submit '検索' , class: "search-icon"%> 
-    
       <% end %>
    </div>
 
 </header>
-<div class="items-sell-contents">
 
 
-    <h1>
+
+     <h1> 
       検索結果
     </h1>
     <%# 検索結果の個数で条件分岐 %>
-    <% if @results.length !=0 %>
-      <% @results.each do |result| %>
+     <% if @results.length !=0  %>
+      <% @results.sample(3) do |result| %>
         <td>
         <br>
         <li>
@@ -31,9 +28,8 @@
       <% end %>
     <% else %>
       該当する商品はありません
-    <% end %>
+    <% end %> 
     <br>
     <%= link_to 'トップページへ戻る', root_path %>
 
 
-</div>

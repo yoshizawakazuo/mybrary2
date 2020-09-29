@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
       
         
-         has_many :items
-        
+         has_many :items, foreign_key: [:item_name,:authr]
+  
    extend ActiveHash::Associations::ActiveRecordExtensions
 
      belongs_to_active_hash :category 

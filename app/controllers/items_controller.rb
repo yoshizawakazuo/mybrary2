@@ -9,12 +9,12 @@ class ItemsController < ApplicationController
 
   def index
      @items = Item.all 
-     @@results = @p.result(dinctinct: true) 
+     @results = @p.result(dinctinct: true) 
 
   end
   
   def search
-    @@results = @p.result.includes(:name,:authr)  
+    @results = @p.result.includes(:item_name,:authr)  
   end
 
   def new
