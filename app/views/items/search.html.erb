@@ -3,7 +3,7 @@
      <%= link_to image_tag("mybrary-logo.png", class:"furima-icon"), "user_path" %> 
       <form class="search-form" > 
       <%= search_form_for @p ,url: items_search_path do |f| %> 
-       <%= f.search_field :item_name_or_authr_cont ,onsearch: true, placeholder: '本のタイトルか作者名で検索できます（こちらに入力してください）', class: 'input-box'%>
+       <%= f.search_field  :item_name_or_authr_cont, @product_name ,onsearch: true, placeholder: '本のタイトルか作者名で検索できます（こちらに入力してください）', class: 'input-box'%>
          <%= f.submit '検索' , class: "search-icon"%> 
       <% end %>
    </div>

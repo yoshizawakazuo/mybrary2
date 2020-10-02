@@ -10,12 +10,14 @@ class ItemsController < ApplicationController
   def index
      @items = Item.all 
      @results = @p.result(dinctinct: true) 
-
+     set_product_column
+     @results = @p.result.includes(:item_name,:authr) 
   end
   
-  def search
-    @results = @p.result.includes(:item_name,:authr)  
-  end
+  # def search
+  #   @results = @p.result.includes(:item_name,:authr) 
+     
+  # end
 
   def new
     @item = Item.new
@@ -73,6 +75,11 @@ class ItemsController < ApplicationController
 
   def search_product
     @p = Item.ransack(params[:q])  
+  end
+
+  def set_product_column
+    @item_name = Item.select("item_name").distinct  
+    @item_authr = Item.select("authr").distinct
   end
 
   def set_item

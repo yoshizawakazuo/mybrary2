@@ -3,7 +3,8 @@ class Item < ApplicationRecord
   
   belongs_to :user 
   has_one_attached :image
-  
+  # has_one :item_name
+  # has_one :authr,:through => :item
   
   extend ActiveHash::Associations::ActiveRecordExtensions
 
