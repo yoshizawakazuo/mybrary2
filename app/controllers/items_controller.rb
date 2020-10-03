@@ -14,10 +14,10 @@ class ItemsController < ApplicationController
      @results = @p.result.includes(:item_name,:authr) 
   end
   
-  # def search
-  #   @results = @p.result.includes(:item_name,:authr) 
+  def search
+    @results = @p.result.includes(:item_name,:authr) 
      
-  # end
+  end
 
   def new
     @item = Item.new
